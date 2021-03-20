@@ -21,7 +21,7 @@ module.exports.metarWeather = (event, _context, callback) => {
       headers: { 'Authorization': `Token ${process.env.AVWX_TOKEN}` },
     }, (_err, _response, body) => respond(200, body));
   } else {
-    respond(401, { error: "You must provide an ICAO in your query." });
+    respond(400, { error: "You must provide an ICAO in your query." });
   }
 
 };
